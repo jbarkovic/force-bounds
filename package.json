@@ -1,0 +1,30 @@
+{
+  "name": "force-bounds",
+  "version": "0.0.1",
+  "description": "Force a numerical value to be within bounds, or a safe default.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbarkovic/force-bounds.git"
+  },
+  "keywords": [
+    "bounds",
+    "config",
+    "number",
+    "check",
+    "within",
+    "default",
+    "force",
+    "ensure",
+    "require"
+  ],
+  "author": "Joshua Barkovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbarkovic/force-bounds/issues"
+  },
+  "homepage": "https://github.com/jbarkovic/force-bounds#readme"
+}
