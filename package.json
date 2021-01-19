@@ -4,7 +4,7 @@
   "description": "Force a numerical value to be within bounds, or a safe default.",
   "main": "index.js",
   "scripts": {
-    "test": "test/test.js"
+    "test": "mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/jbarkovic/force-bounds/issues"
   },
-  "homepage": "https://github.com/jbarkovic/force-bounds#readme"
+  "homepage": "https://github.com/jbarkovic/force-bounds#readme",
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
 }

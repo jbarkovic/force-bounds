@@ -15,12 +15,16 @@ const check = (v, min, max = min) => {
 const force = (v, min, max = min, _default = min) => {
     [min, max] = checkBounds(min, max);
 
-    if (!check(_default, min, max)) throw new Error('Default value is out of range');
-    if (typeof v !== 'number' || v === NaN) return v || _default;
+    if (Number.isNaN(_default) || typeof _default !== 'number') throw new Error('Default is not a number');
+    if (!check(_default, min, max)) throw new Error(`Default value is out of range ${_default}`);
+    // Don't clobber values that are both non falsy and non numerical, eg strings and objects
+    if (v && typeof v !== 'number') throw new Error('Non numerical value has data, will not overwrite');
+
     let forced = v;
     forced = Math.min(v, max); // force at most max
     forced = Math.max(forced, min); // force at least min
-    return forced;
+
+    return Number.isNaN(forced) ? _default : forced;
 }
 
 
