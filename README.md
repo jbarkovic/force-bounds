@@ -18,7 +18,7 @@ const safe = bounds.force(value, min, max, default)
 // If default is outside of the range [max, min], an error is thrown.
 // If none of min, max, default are provided, an error is thrown, since that use case is meaningless and likely a mistake.
 ```
-###  check if a value is within bounds
+###  Check if a value is within bounds
 ```javascript
 const bounds = require('force-bounds');
 
