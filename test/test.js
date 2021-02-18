@@ -54,15 +54,16 @@ describe('Input validation tests', function() {
     });
 
     it('should NOT fail when input value is a falsy value', () => {
-        expect(() => bounds.force(NaN, 1, 2, 1)).to.not.throw().to.equal(1);
-        expect(() => bounds.force(undefined, 1, 2, 1)).to.not.throw().to.equal(1);
-        expect(() => bounds.force(null, 1, 2, 1)).to.not.throw().to.equal(1);
-        expect(() => bounds.force('', 1, 2, 1)).to.not.throw().to.equal(1);
-        expect(() => bounds.force(false, 1, 2, 1)).to.not.throw().to.equal(1);
+        expect(() => bounds.force(NaN, 1, 2, 1)).to.not.throw();
+        expect(() => bounds.force(undefined, 1, 2, 1)).to.not.throw();
+        expect(() => bounds.force(null, 1, 2, 1)).to.not.throw();
+        expect(() => bounds.force('', 1, 2, 1)).to.not.throw();
+        expect(() => bounds.force(false, 1, 2, 1)).to.not.throw();
     });
 
     it('should fail when input is not a number and not a falsy value', () => {
         expect(() => bounds.force("these aren't the values you're loooking for", 1, 2, 1)).to.throw();
+        expect(() => bounds.force("1", 1, 2, 1)).to.throw();
         expect(() => bounds.force({}, 1, 2, 1)).to.throw();
         expect(() => bounds.force([], 1, 2, 1)).to.throw();
     });
@@ -104,6 +105,10 @@ describe('Core functionality tests', () => {
 
     it('should set default when value is invalid', () => {
         expect(bounds.force(undefined, 1, 8, 3)).to.equal(3);
+        expect(bounds.force(false, 1, 8, 3)).to.equal(3);
+        expect(bounds.force('', 1, 8, 3)).to.equal(3);
+        expect(bounds.force(null, 1, 8, 3)).to.equal(3);
+        expect(bounds.force(NaN, 1, 8, 3)).to.equal(3);
     });
 
     if ('should silently interpret reversed ranges as normal ranges', () => {

@@ -1,6 +1,6 @@
 {
   "name": "force-bounds",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Force a numerical value to be within bounds, or a safe default.",
   "main": "index.js",
   "scripts": {

@@ -38,7 +38,23 @@ let safeSpeed = bounds.force(speed, 0, 60, 0);
 // safeSpeed === 10
 
 safeSpeed = bounds.force(120, 0, 60, 55);
+// safeSpeed === 60
+
+safeSpeed = bounds.force(undefined, 0, 60, 55);
 // safeSpeed === 55
+
+safeSpeed = bounds.force(false, 0, 60, 55);
+// safeSpeed === 55
+
+safeSpeed = bounds.force(Number.NaN, 0, 60, 55);
+// safeSpeed === 55
+
+safeSpeed = bounds.force('', 0, 60, 55);
+// safeSpeed === 55
+
+safeSpeed = bounds.force('120', 0, 60, 55);
+// Error thrown, does not clobber existing data
+
 ```
 
 ### Checking values

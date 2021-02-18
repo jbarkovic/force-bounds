@@ -20,6 +20,9 @@ const force = (v, min, max = min, _default = min) => {
     // Don't clobber values that are both non falsy and non numerical, eg strings and objects
     if (v && typeof v !== 'number') throw new Error('Non numerical value has data, will not overwrite');
 
+    // return default is not a number
+    if (typeof v !== 'number') return _default;
+
     let forced = v;
     forced = Math.min(v, max); // force at most max
     forced = Math.max(forced, min); // force at least min
